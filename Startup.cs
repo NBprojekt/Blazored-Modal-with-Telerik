@@ -31,6 +31,7 @@ namespace blazor_modal
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddBlazoredModal();
+            services.AddTelerikBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
