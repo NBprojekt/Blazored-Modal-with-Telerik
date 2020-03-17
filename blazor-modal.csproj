@@ -5,4 +5,8 @@
     <RootNamespace>blazor_modal</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Blazored.Modal" Version="4.0.0" />
+  </ItemGroup>
+
 </Project>
