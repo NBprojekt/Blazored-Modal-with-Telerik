@@ -1,0 +1,11 @@
+.vs/
+.vscode/
+.dotnet/
+*.user
+*.binlog
+**/bin/
+**/obj/
+**/artifacts/
+**/Compiled
+**/bundle.min.css
+**/bundle.min.js
