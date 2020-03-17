@@ -1,5 +1,19 @@
-﻿<div>
-    <p>Please click one of the buttons below to close or cancel the modal.</p>
+﻿<div style="min-width: 400px;">
+    <TelerikChart>
+        <ChartTitle Text="Break-up of Spain Electricity Production for 2008"></ChartTitle>
+        <ChartLegend Position="ChartLegendPosition.Bottom"></ChartLegend>
+
+        <ChartSeriesItems>
+            <ChartSeries Type="ChartSeriesType.Pie"
+                         Data="@Data"
+                         Field="@nameof(ModelData.Percentage)"
+                         CategoryField="@nameof(ModelData.Source)"
+                         ExplodeField="@nameof(ModelData.Explode)">
+                <ChartSeriesLabels Visible="true"></ChartSeriesLabels>
+            </ChartSeries>
+        </ChartSeriesItems>
+
+    </TelerikChart>
 
     <button @onclick="Close" class="btn btn-primary">Close</button>
     <button @onclick="Cancel" class="btn btn-secondary">Cancel</button>
@@ -8,6 +22,41 @@
 @code {
 
     [CascadingParameter] BlazoredModalInstance BlazoredModal { get; set; }
+
+    public class ModelData
+    {
+        public string Source { get; set; }
+        public int Percentage { get; set; }
+        public bool Explode { get; set; }
+    }
+
+    public List<ModelData> Data = new List<ModelData>()
+    {
+        new ModelData()
+        {
+            Source = "Hydro",
+            Percentage = 22,
+            Explode = true
+        },
+        new ModelData()
+        {
+            Source = "Solar",
+            Percentage = 2,
+            Explode = false
+        },
+        new ModelData()
+        {
+            Source = "Nuclear",
+            Percentage = 49,
+            Explode = false
+        },
+        new ModelData()
+        {
+            Source = "Wind",
+            Percentage = 27,
+            Explode = false
+        }
+    };
 
     void Close() => BlazoredModal.Close(ModalResult.Ok(true));
     void Cancel() => BlazoredModal.Cancel();
