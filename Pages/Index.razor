@@ -1,5 +1,10 @@
 ﻿@page "/"
+@inject IModalService Modal
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<button @onclick="@(() => Modal.Show<TestModal>("Test Modal"))" class="btn btn-primary"> 
+    Open Test Modal 
+</button>
